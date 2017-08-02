@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="foot">
-    <p>hello</p>
+    <div class="container">
+    <img src="/static/bingguo.jpg" alt="">
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,12 @@ export default {
 
 <style lang="css">
 .foot {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+}
+.foot img {
+  height: 200px;
+  position: relative;
+  left: 100px;
+  /*bottom: 50px;*/
 }
 </style>

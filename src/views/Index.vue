@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scope>
 .index{
   font-family: 'Open Sans', 'Helvetica Neue',
   'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
@@ -111,29 +111,6 @@ export default {
 h1, h2 {
     position: relative;
 }
-h1 {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  letter-spacing: 9px;
-  text-transform: uppercase;
-  margin: 12px 0;
-  left: 4px;
-}
-h2 {
-    color: #999;
-    font-weight: normal;
-    font-size: 15px;
-    letter-spacing: .12em;
-    margin-bottom: 30px;
-    left: 3px;
-}
-p {
-    font-size: 14px;
-    line-height: 2em;
-    margin: 0;
-    letter-spacing: 2px;
-}
 canvas {
   position: absolute;
   top: 0;
@@ -149,6 +126,6 @@ a {
   transition: color .2s ease;
 }
 a:hover {
-  color: #f33;
+  color: #deba3b;
 }
 </style>

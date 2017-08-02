@@ -1,21 +1,118 @@
 <template lang="html">
-  <div>
+  <div class="blog">
     <nav-header></nav-header>
-    <nav-footer></nav-footer>
+    <div class="headpic">
+      <div class="headtitle">
+        <p class="title">
+          <a href="/blog">Chunibyo</a>
+        </p>
+      </div>
+    </div>
+    <div class="container content">
+      <div class="list">
+        <div class="main">
+          <article-list></article-list>
+          <article-list></article-list>
+          <article-list></article-list>
+        </div>
+        <div class="side">
+          <side-section></side-section>
+          <side-section></side-section>
+          <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe>
+        </div>
+      </div>
+    </div>
+    <scroll-top></scroll-top>
+    <!-- <nav-footer></nav-footer> -->
   </div>
 </template>
 
 <script>
 import NavHeader from '@/components/Header.vue'
 import NavFooter from '@/components/Footer.vue'
+import articleList from '@/components/articleList.vue'
+import sideSection from '@/components/sideSection.vue'
+import scrollTop from '@/components/scrollTop.vue'
 export default {
   name: 'Blog',
   components: {
     NavHeader,
-    NavFooter
+    NavFooter,
+    articleList,
+    sideSection,
+    scrollTop
   }
 }
 </script>
 
 <style lang="css">
+.headpic {
+  height: 400px;
+  background: #ff568f url(/static/header.jpg) right -100px  no-repeat;
+  position: relative;
+}
+.headtitle {
+  position: relative;
+  top: 150px;
+  font-family: 'Geo', sans-serif;
+  font-size: 34px;
+  text-shadow: 0 3px 3px #616066;
+  z-index: 1;
+  padding-left: 100px;
+}
+.title {
+  font-size: 2em;
+  height: 68px;
+}
+.title a {
+    color: #fff;
+    font-weight: 300;
+}
+.blog{
+  background-color: rgba(#e0e0e0, 0.76);
+  font-family: PingFang TC,Avenir Next,Helvetica,Arial,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  font-size: 15px;
+  color: #444!important;
+}
+.content {
+  position: relative;
+  /*background-color: red;*/
+  overflow: hidden;
+}
+.list {
+  margin-top: 38px;
+}
+.list .main {
+    width: 67%;
+    float: left;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+.list .side {
+    width: 30%;
+    float: right;
+}
+@media (max-width: 1000px) {
+  .list .main {
+    width: 100%!important;
+  }
+  .list .side {
+    display: none!important;
+  }
+  .headtitle {
+    text-align: center;
+    top: 200px;
+    padding-left: 0;
+  }
+}
+@media (max-width: 700px){
+  .headpic {
+      height: 300px!important;
+      background: #ff568f url(/static/header.jpg) 10% 40% no-repeat;
+  }
+  .headtitle {
+    text-align: center;
+    top: 180px;
+  }
+}
 </style>
