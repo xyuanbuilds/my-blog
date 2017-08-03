@@ -4,17 +4,17 @@
     <nav id="primary-navigation" class="site-navigation primary-navigation">
       <div class="menum">
         <ul class="nav-menu">
-          <li class="menu-item"><a href="">首页</a></li>
+          <li class="menu-item"><a href=""><i class="fa fa-home"></i>首页</a></li>
           <li id="collapse" class="menu-item">
-            <a href="">分类</a>
+            <a href=""><i class="fa fa-cog"></i>分类</a>
             <ul class="collapse-menum">
               <li class="menu-item"><a href="">1</a></li>
               <li class="menu-item"><a href="">2</a></li>
               <li class="menu-item"><a href="">3</a></li>
             </ul>
           </li>
-          <li class="menu-item"><a href="">留言</a></li>
-          <li class="menu-item"><a href="">关于</a></li>
+          <li class="menu-item"><a href=""><i class="fa fa-comment"></i>留言</a></li>
+          <li class="menu-item"><a href=""><i class="fa fa-user"></i>关于</a></li>
         </ul>
       </div>
     </nav>
@@ -159,7 +159,7 @@ a {
       line-height: 38px;
       position: relative;
   }
-  .primary-navigation li:hover>a {
+  .primary-navigation li:hover {
       background-color: rgba(175, 175, 175, 0.2);
       color: #fff;
   }

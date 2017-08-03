@@ -61,7 +61,7 @@ export default {
   padding-left: 100px;
 }
 .title {
-  font-size: 2em;
+  font-size: 2.5em;
   height: 68px;
 }
 .title a {
@@ -69,15 +69,13 @@ export default {
     font-weight: 300;
 }
 .blog{
-  background-color: rgba(#e0e0e0, 0.76);
+  /*background-color: #f2f2f2;*/
   font-family: PingFang TC,Avenir Next,Helvetica,Arial,Hiragino Sans GB,Microsoft YaHei,sans-serif;
   font-size: 15px;
   color: #444!important;
 }
 .content {
   position: relative;
-  /*background-color: red;*/
-  overflow: hidden;
 }
 .list {
   margin-top: 38px;
@@ -112,7 +110,7 @@ export default {
   }
   .headtitle {
     text-align: center;
-    top: 180px;
+    top: 160px;
   }
 }
 </style>
