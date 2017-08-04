@@ -1,0 +1,16 @@
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+.container:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+@media (max-width: 800px) {
+    .container {
+        max-width: 100%!important;
+    }
+}

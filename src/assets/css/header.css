@@ -1,0 +1,136 @@
+.navbar {
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    color: #444;
+}
+#collapse:hover .collapse-menum{
+    left: 0;
+}
+
+/*导航条动画*/
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+.animated.slideDown {
+    -webkit-animation-name: slideDown;
+    -moz-animation-name: slideDown;
+    -o-animation-name: slideDown;
+    animation-name: slideDown;
+}
+.animated.slideUp {
+    -webkit-animation-name: slideUp;
+    -moz-animation-name: slideUp;
+    -o-animation-name: slideUp;
+    animation-name: slideUp;
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-4em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4em);
+  }
+}
+
+.navbar {
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 3;
+    background: rgba(0,0,0,.4);
+}
+
+/*自适应布局*/
+@media (max-width: 700px) {
+    #primary-navigation {
+        float: none;
+    }
+    .navbar {
+        position: absolute!important;
+    }
+    #primary-navigation .nav-menu {
+        display: flex;
+    }
+    #primary-navigation .menu-item {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+    #primary-navigation a {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    #primary-navigation ul ul a{
+        padding: 14px 12px;
+        white-space: normal;
+        background-color: rgba(175, 175, 175, 0.2);
+    }
+}
+@media screen and (min-width: 6px) {
+  .primary-navigation {
+      font-size: 14px;
+  }
+  .site-navigation {
+      float: left;
+  }
+  .primary-navigation li {
+      border: 0;
+      display: inline-block;
+      height: 38px;
+      line-height: 38px;
+      position: relative;
+  }
+  .primary-navigation li:hover {
+      background-color: rgba(175, 175, 175, 0.2);
+      color: #fff;
+  }
+
+  .collapse-menum {
+      background-color: rgba(175, 175, 175, 0.2);
+      float: left;
+      margin: 0;
+      position: absolute;
+      top: 38px;
+      left: -999em;
+      z-index: 9;
+  }
+  .primary-navigation li li {
+    border: 0;
+    display: block;
+    height: auto;
+    line-height: 1.0909090909;
+  }
+  .primary-navigation ul ul a{
+    padding: 14px 12px;
+    white-space: normal;
+    width: 130px;
+    background-color: rgba(175, 175, 175, 0.2);
+  }
+  .menu-item {
+      cursor: pointer;
+  }
+  .primary-navigation a {
+      display: inline-block;
+      padding: 0 12px;
+      white-space: nowrap;
+      color: #fff;
+  }
+}

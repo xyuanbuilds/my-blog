@@ -1,0 +1,67 @@
+.headpic {
+  height: 400px;
+  background: #ff568f url(/static/header.jpg) right -100px  no-repeat;
+  position: relative;
+}
+.headtitle {
+  position: relative;
+  top: 150px;
+  font-family: 'Geo', sans-serif;
+  font-size: 34px;
+  text-shadow: 0 3px 3px #616066;
+  z-index: 1;
+  padding-left: 100px;
+}
+.title {
+  font-size: 2.5em;
+  height: 68px;
+}
+.title a {
+    color: #fff;
+    font-weight: 300;
+}
+.blog .article{
+  /*background-color: #f2f2f2;*/
+  font-family: PingFang TC,Avenir Next,Helvetica,Arial,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  font-size: 15px;
+  color: #444!important;
+}
+.content {
+  position: relative;
+}
+.list {
+  margin-top: 38px;
+}
+.list .main {
+    width: 67%;
+    float: left;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+.list .side {
+    width: 30%;
+    float: right;
+}
+@media (max-width: 1000px) {
+  .list .main {
+    width: 100%!important;
+  }
+  .list .side {
+    display: none!important;
+  }
+  .headtitle {
+    text-align: center;
+    top: 200px;
+    padding-left: 0;
+  }
+}
+@media (max-width: 700px){
+  .headpic {
+      height: 300px!important;
+      background: #ff568f url(/static/header.jpg) 10% 40% no-repeat;
+  }
+  .headtitle {
+    text-align: center;
+    top: 160px;
+  }
+}

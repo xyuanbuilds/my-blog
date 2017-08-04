@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import '@/assets/css/index.css'
 export default {
   mounted () {
     var _gaq = _gaq || [];
@@ -88,44 +89,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scope>
-.index{
-  font-family: 'Open Sans', 'Helvetica Neue',
-  'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
-  color: #333;
-}
-#wrapper {
-    position: absolute;
-    left: 0;
-    width: 320px;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    margin-left: -160px;
-    margin-top: -160px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-h1, h2 {
-    position: relative;
-}
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-a {
-  color: #999;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-a:hover {
-  color: #deba3b;
-}
-</style>

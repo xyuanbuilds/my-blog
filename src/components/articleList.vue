@@ -1,107 +1,60 @@
 <template lang="html">
-  <article class="block post">
+<div>
+  <article class="block post" v-for="item in list">
     <span class="time">
       <span class="month">1月</span>
       <span class="day">12</span>
     </span>
-    <h1>第一篇博客</h1>
-    <div class="abstract">
-      <h2>分割线</h2>
-      <pre class="hljs">
-        <code class="">*** --- </code>
-      </pre>
-      <p>这是我的第一篇博文</p>
-      <p>这是我的第一篇博文</p>
-      <p>这是我的第一篇博文</p>
-      <p>这是我的第一篇博文</p>
+    <h1>{{item.title}}</h1>
+    <div class="abstract" v-html="item.content.html">
     </div>
-    <p class="more"><a href="">阅读全文</a></p>
+    <p class="more"><router-link :to="{ path: '/article', query:{id:item.articleId} }">阅读全文</router-link></p>
   </article>
+  <div class="pages">
+    <button type="button" name="button" @click="up">上一页</button>
+    <button type="button" name="button" @click="down">下一页</button>
+  </div>
+</div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  data () {
+    return {
+      list: [],
+      page: 1,
+      pageSize: 5,
+    }
+  },
+  methods: {
+    getlist () {
+      var param = {
+        page: this.page,
+        pageSize: this.pageSize
+      }
+      axios.get("/articles/articleList", {
+        params: param
+      }).then((result)=>{
+        let res = result.data
+        if (res.status == "0") {
+          this.list = res.result.list
+        } else {
+          this.list = []
+        }
+      })
+    },
+    up () {
+      this.page++
+      this.getlist()
+    },
+    down () {
+      this.page--
+      this.getlist()
+    }
+  },
+  mounted () {
+    this.getlist()
+  }
 }
 </script>
-
-<style lang="css">
-.content .post, .recent-comments {
-    white-space: normal;
-    word-break: break-all;
-    word-wrap: break-word;
-}
-.block.post {
-    background: #fff;
-    border: 2px solid #97d279;
-}
-.block {
-    position: relative;
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-}
-.time {
-    background-color: #97d279;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-    position: absolute;
-    top: -20px;
-    left: -35px;
-    height: 60px;
-    width: 70px;
-    padding-top: 10px;
-    border-radius: 100px;
-    text-align: center;
-    color: #EFEFEF;
-    z-index:10;
-}
-.time .month {
-    display: block;
-}
-.time .day {
-    font-size: 30px;
-    font-weight: 700;
-    display: block;
-}
-article h1 {
-  padding: 0.1em 80px 0 80px;
-  font-size: 2.2rem;
-  text-shadow: 1px 1px #EFEFEF, 3px 3px #AEE2D9;
-  color: #22C3AA;
-  position: relative;
-}
-.abstract {
-  font-family: Lato,"Microsoft YaHei",sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.8em;
-  margin: 1em 0;
-  color: #333;
-  text-indent: 2em
-}
-.more {
-  text-align: center;
-}
-.more a {
-  background-color: #96e1fc;
-  color: #fff;
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  /*background-color: #e8e8e8;*/
-  transition: .5s;
-  -o-transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s;
-}
-@media (max-width: 800px) {
-  .block {
-    border-radius: 0!important;
-  }
-  .time {
-    display: none;
-  }
-  .block.post{
-    border: 0;
-  }
-}
-</style>
