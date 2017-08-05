@@ -6,13 +6,17 @@
       <span class="day">12</span>
     </span>
     <h1>{{item.title}}</h1>
+    <p class="article-meta">发布于 {{item.createDate}}</p>
+    <div class="ui ribbon label red">
+      <a href="">{{item.tag}}</a>
+    </div>
     <div class="abstract" v-html="item.content.html">
     </div>
-    <p class="more"><router-link :to="{ path: '/article', query:{id:item.articleId} }">阅读全文</router-link></p>
+    <p class="more"><router-link :to="{ path: '/article', query:{articleId:item.articleId} }">阅读全文</router-link></p>
   </article>
   <div class="pages">
-    <button type="button" name="button" @click="up">上一页</button>
-    <button type="button" name="button" @click="down">下一页</button>
+    <a href="" @click="go(page-=1)" style="float: left;">上一页</a>
+    <a href="" @click="go(page+=1)" style="float: right;">下一页</a>
   </div>
 </div>
 </template>
@@ -25,6 +29,7 @@ export default {
       list: [],
       page: 1,
       pageSize: 5,
+      count: 0
     }
   },
   methods: {
@@ -38,19 +43,24 @@ export default {
       }).then((result)=>{
         let res = result.data
         if (res.status == "0") {
-          this.list = res.result.list
+          if (res.result.count == "0") {
+            this.page-=1
+            return
+          } else {
+            this.list = res.result.list
+            this.count = res.result.count
+          }
         } else {
           this.list = []
         }
       })
     },
-    up () {
-      this.page++
-      this.getlist()
-    },
-    down () {
-      this.page--
-      this.getlist()
+    go () {
+      if (this.page<1) {
+        this.page = 1
+      } else {
+        this.getlist()
+      }
     }
   },
   mounted () {

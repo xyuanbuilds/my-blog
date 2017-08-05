@@ -3,7 +3,7 @@
   <nav-header></nav-header>
   <div class="container">
     <div class="list">
-      <div class="main" v-html="article.content.html">
+      <div class="main" v-html="article.content">
       </div>
       <div class="side">
         <side-section></side-section>
@@ -31,14 +31,17 @@ export default {
   },
   data () {
     return {
-      article: {}
+      article: ''
     }
   },
   methods: {
     init () {
       let articleId = this.$route.query.articleId
-      axios.get("/articles/articleDetial", {
+      let param = {
         articleId: articleId
+      }
+      axios.get("/articles/articleDetial", {
+        params: param
       }).then((result)=>{
         let res = result.data
         if (res.status == "0") {
@@ -50,7 +53,7 @@ export default {
     }
   },
   mounted () {
-    this.init()
+    this.init ()
   }
 }
 </script>

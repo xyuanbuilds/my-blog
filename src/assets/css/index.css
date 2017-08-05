@@ -16,6 +16,29 @@
   -moz-user-select: none;
   user-select: none;
 }
+h1 {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  margin: 12px 0;
+  left: 4px;
+}
+h2 {
+    color: #999;
+    font-weight: normal;
+    font-size: 15px;
+    letter-spacing: .12em;
+    margin-bottom: 30px;
+    left: 3px;
+}
+p {
+    font-size: 14px;
+    line-height: 2em;
+    margin: 0;
+    letter-spacing: 2px;
+}
 h1, h2 {
   position: relative;
 }

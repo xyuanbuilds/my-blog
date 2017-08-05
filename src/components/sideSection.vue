@@ -1,15 +1,8 @@
 <template lang="html">
   <section class="block widget">
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
+    <div class="sidecontent">
+      <slot name="sidecontent"></slot>
+    </div>
   </section>
 </template>
 
