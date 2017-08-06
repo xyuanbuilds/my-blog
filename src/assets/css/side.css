@@ -1,4 +1,11 @@
-.widget {
+.secondary .section {
+    margin: 0 0 25px 0;
+    /*padding: 0 0 25px 0;*/
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding: 15px;
+}
+/*.widget {
     margin-left: 10px;
     margin-right: 10px;
     -webkit-transition: all .2s linear;
@@ -10,4 +17,4 @@
     box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
     -webkit-transform: translate3d(0px,-5px,0);
     transform: translate3d(0px,-5px,0);
-}
+}*/

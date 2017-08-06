@@ -1,10 +1,10 @@
 <template lang="html">
-<div>
+<div class="article-list">
   <article class="block post" v-for="item in list">
-    <span class="time">
+    <!-- <span class="time">
       <span class="month">1月</span>
       <span class="day">12</span>
-    </span>
+    </span> -->
     <h1>{{item.title}}</h1>
     <p class="article-meta">发布于 {{item.createDate}}</p>
     <div class="ui ribbon label red">
@@ -68,3 +68,12 @@ export default {
   }
 }
 </script>
+
+<style media="screen">
+.article-list {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.08)
+}
+</style>

@@ -1,24 +1,29 @@
 .headpic {
-  height: 400px;
-  background: #ff568f url(/static/header.jpg) right -100px  no-repeat;
+  height: 300px;
+  background:  url(/static/sky.png) center -350px  no-repeat;
   position: relative;
 }
 .headtitle {
+  top:100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 50px;
   position: relative;
-  top: 150px;
   font-family: 'Geo', sans-serif;
   font-size: 34px;
   text-shadow: 0 3px 3px #616066;
-  z-index: 1;
-  padding-left: 100px;
 }
 .title {
-  font-size: 2.5em;
-  height: 68px;
+  float: left;
 }
-.title a {
-    color: #fff;
-    font-weight: 300;
+.title h1 {
+  color: #fff;
+  font-weight: 300;
+  margin: -5px 0 6px 0;
+  font-size: 78px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: .02em;
 }
 .blog .article{
   /*background-color: #f2f2f2;*/
@@ -35,6 +40,7 @@
 .list .main {
     width: 67%;
     float: left;
+    margin-top: -80px;
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
 }
@@ -51,17 +57,21 @@
   }
   .headtitle {
     text-align: center;
-    top: 200px;
-    padding-left: 0;
+    top: 100px;
+  }
+  .back-to-top {
+    right: 20px!important;
   }
 }
 @media (max-width: 700px){
   .headpic {
       height: 300px!important;
-      background: #ff568f url(/static/header.jpg) 10% 40% no-repeat;
   }
   .headtitle {
     text-align: center;
-    top: 160px;
+    top: 100px;
+  }
+  .back-to-top {
+    display: none;
   }
 }

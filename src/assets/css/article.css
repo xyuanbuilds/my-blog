@@ -10,8 +10,7 @@
     position: relative;
     background: #fff;
     padding: 15px;
-    margin-bottom: 40px;
-    border-radius: 10px;
+    border-bottom: 1px solid #e0e0e0;
 }
 .time {
   /*#22C3AA*/
@@ -59,7 +58,7 @@ article h1 {
 .ui.ribbon.label {
     position: relative;
     margin: 0 .2em;
-    left: -2rem;
+    left: -3.2rem;
     padding-left: 2rem;
     border-radius: 0 4px 4px 0;
     border-color: rgba(0,0,0,.15);
@@ -125,7 +124,7 @@ article h1 {
 }
 .pages {
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto 0;
   overflow: hidden;
 }
 .pages a {
@@ -139,14 +138,10 @@ article h1 {
   color: #fff;
 }
 @media (max-width: 800px) {
-  .block {
+  .article-list {
     border-radius: 0!important;
   }
-  .time {
+  .ui.ribbon.label:after{
     display: none;
-  }
-  .block.post{
-    border: 0;
-    border-bottom: 1px solid #97d279;
   }
 }

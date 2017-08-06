@@ -1,6 +1,6 @@
 <template lang="html">
-  <section class="block widget">
-    <div class="sidecontent">
+  <section class="secondary section">
+    <div class="section">
       <slot name="sidecontent"></slot>
     </div>
   </section>
