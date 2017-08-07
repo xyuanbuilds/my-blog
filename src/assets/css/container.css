@@ -3,6 +3,9 @@
     margin: 0 auto;
     position: relative;
 }
+.container.full {
+    max-width: 60%;
+}
 .container:after {
     clear: both;
     content: "";

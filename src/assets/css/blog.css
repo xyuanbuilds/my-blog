@@ -1,6 +1,6 @@
 .headpic {
-  height: 300px;
-  background:  url(/static/sky.png) center -350px  no-repeat;
+  height: 280px;
+  background:  url(/static/sky.png) center -600px  no-repeat;
   position: relative;
 }
 .headtitle {
@@ -26,7 +26,6 @@
   letter-spacing: .02em;
 }
 .blog .article{
-  /*background-color: #f2f2f2;*/
   font-family: PingFang TC,Avenir Next,Helvetica,Arial,Hiragino Sans GB,Microsoft YaHei,sans-serif;
   font-size: 15px;
   color: #444!important;
@@ -40,7 +39,7 @@
 .list .main {
     width: 67%;
     float: left;
-    margin-top: -80px;
+    margin-top: -90px;
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
 }

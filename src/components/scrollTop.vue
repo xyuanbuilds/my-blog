@@ -36,7 +36,7 @@
    },
    pageY: { // 默认在哪个视图显示返回按钮
     type: Number,
-    default: 400
+    default: 300
    },
    transitionName: { // 过渡动画名称
     type: String,
@@ -74,7 +74,7 @@
 
    },
    backToTop () {
-    scrollIt(0, 1500, this.transitionName, this.currentPageYOffset);
+    scrollIt(0, 500, this.transitionName, this.currentPageYOffset);
    }
   },
   created () {

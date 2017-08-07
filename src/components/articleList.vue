@@ -15,8 +15,8 @@
     <p class="more"><router-link :to="{ path: '/article', query:{articleId:item.articleId} }">阅读全文</router-link></p>
   </article>
   <div class="pages">
-    <a href="" @click="go(page-=1)" style="float: left;">上一页</a>
-    <a href="" @click="go(page+=1)" style="float: right;">下一页</a>
+    <a href="javascript:;" @click="go(page-=1)" style="float: left;">上一页</a>
+    <a href="javascript:;" @click="go(page+=1)" style="float: right;">下一页</a>
   </div>
 </div>
 </template>
@@ -28,9 +28,12 @@ export default {
     return {
       list: [],
       page: 1,
-      pageSize: 5,
+      pageSize: 10,
       count: 0
     }
+  },
+  mounted () {
+    this.getlist()
   },
   methods: {
     getlist () {
@@ -43,12 +46,11 @@ export default {
       }).then((result)=>{
         let res = result.data
         if (res.status == "0") {
-          if (res.result.count == "0") {
-            this.page-=1
+          if (res.result.count == 0) {
+            this.page -= 1
             return
           } else {
             this.list = res.result.list
-            this.count = res.result.count
           }
         } else {
           this.list = []
@@ -58,13 +60,11 @@ export default {
     go () {
       if (this.page<1) {
         this.page = 1
+        return
       } else {
         this.getlist()
       }
     }
-  },
-  mounted () {
-    this.getlist()
   }
 }
 </script>

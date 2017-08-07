@@ -31,7 +31,7 @@
                 </span>
               </a>
               </div>
-              <div class="">
+              <div class="social">
                 <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-weibo"></i></a>
                 <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-github"></i></a>
                 <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-envelope"></i></a>
@@ -39,7 +39,83 @@
               </div>
             </div>
           </side-section>
-          <side-section></side-section>
+          <side-section>
+            <div slot="sidecontent">
+              <li class="message-title">留言</li>
+              <li class="message-item">
+                <a href="javascript:;" class="message-from">
+                  <div class="message-content">
+                    <span class="l_title">
+                      XY
+                      <span>
+                        <br>
+                        <small class="l_message">
+                          记录生活每一天
+                          记录生活每一天
+                          记录生活每一天
+                          记录生活每一天
+                          记录生活每一天
+                        </small>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
+                  </div>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="javascript:;" class="message-from">
+                  <div class="message-content">
+                    <span class="l_title">
+                      XY
+                      <span>
+                        <br>
+                        <small class="l_message">
+                          记录生活每一天
+                        </small>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
+                  </div>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="javascript:;" class="message-from">
+                  <div class="message-content">
+                    <span class="l_title">
+                      XY
+                      <span>
+                        <br>
+                        <small class="l_message">
+                          记录生活每一天
+                        </small>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
+                  </div>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="javascript:;" class="message-from">
+                  <div class="message-content">
+                    <span class="l_title">
+                      XY
+                      <span>
+                        <br>
+                        <small class="l_message">
+                          记录生活每一天
+                        </small>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
+                  </div>
+                </a>
+              </li>
+            </div>
+          </side-section>
           <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe>
         </div>
       </div>
@@ -101,23 +177,22 @@ a.pic {
   position: absolute;
 }
 a.pic img {
-  height: 30px;
-  width: 30px;
+  height: 100px;
+  width: 100px;
   display: inline-block;
   overflow: hidden;
   line-height: 1;
   vertical-align: middle;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 .social {
-  width: 100%;
-  text-align: center;
   padding-top: 10px;
+  padding-left: 110px;
 }
 
 .detail {
   margin: 0 0 0 5px;
-  padding: 0 0 0 36px;
+  padding: 0 0 0 110px;
   display: block;
   margin: 0 0 0 5px;
   font-weight: 500;
@@ -145,18 +220,18 @@ a.pic img {
   display: inline-block;
   margin-bottom: 7px;
   text-decoration: none;
-  text-align: center;
 }
 .social a i {
   font-size: 20px;
-  width: 42px;
-  height: 42px;
-  line-height: 42px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   border-radius: 42px;
   color: rgba(0,0,0,.5);
   background-color: rgba(0,0,0,.1);
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  text-align: center;
 }
 .social a i:hover {
   background-color: rgba(246, 122, 122, 0.8);
@@ -164,5 +239,52 @@ a.pic img {
 }
 .fa {
     margin: 0 0.2em;
+}
+li {
+  list-style-type: none;
+}
+.message-title {
+  border-bottom: 2px solid rgba(139, 139, 139, 0.5);
+    padding: 0 10px;
+    color: rgb(139, 139, 139);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 25px;
+}
+.message-item {
+  border-bottom: 1px solid rgba(139, 139, 139, 0.5);
+}
+.message-from {
+  height: 45px;
+  padding: 8px 8px 0 57px;
+  display: block;
+  line-height: 14px;
+  position: relative;
+}
+.message-avatar {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  border-radius: 3px;
+  display: block;
+  height: 37px;
+  width: 37px;
+}
+.l_title {
+  color: rgba(139, 139, 139, 0.8);
+    font-weight: 700;
+    padding: 1px 0 0;
+    line-height: 17px;
+    font-size: 14px;
+}
+.l_message {
+  color: rgba(139, 139, 139, 0.5);
+  display: block;
+  font-weight: 400;
+  line-height: 17px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 </style>
