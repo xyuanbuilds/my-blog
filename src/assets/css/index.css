@@ -1,8 +1,8 @@
-.index{
-  font-family: 'Open Sans', 'Helvetica Neue',
-  'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+.index {
+  font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
   color: #333;
 }
+
 #wrapper {
   position: absolute;
   left: 0;
@@ -16,6 +16,7 @@
   -moz-user-select: none;
   user-select: none;
 }
+
 h1 {
   font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
@@ -25,23 +26,27 @@ h1 {
   margin: 12px 0;
   left: 4px;
 }
+
 h2 {
-    color: #999;
-    font-weight: normal;
-    font-size: 15px;
-    letter-spacing: .12em;
-    margin-bottom: 30px;
-    left: 3px;
+  color: #999;
+  font-weight: normal;
+  font-size: 15px;
+  letter-spacing: .12em;
+  margin-bottom: 30px;
+  left: 3px;
 }
+
 p {
-    font-size: 14px;
-    line-height: 2em;
-    margin: 0;
-    letter-spacing: 2px;
+  font-size: 14px;
+  line-height: 2em;
+  margin: 0;
+  letter-spacing: 2px;
 }
+
 h1, h2 {
   position: relative;
 }
+
 canvas {
   position: absolute;
   top: 0;
@@ -51,11 +56,13 @@ canvas {
   height: 100%;
   pointer-events: none;
 }
+
 a {
   color: #999;
   text-decoration: none;
   transition: color .2s ease;
 }
+
 a:hover {
   color: #deba3b;
 }

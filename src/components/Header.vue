@@ -8,9 +8,9 @@
           <li id="collapse" class="menu-item">
             <a href=""><i class="fa fa-cog"></i>分类</a>
             <ul class="collapse-menum">
-              <li class="menu-item"><a href="">1</a></li>
-              <li class="menu-item"><a href="">2</a></li>
-              <li class="menu-item"><a href="">3</a></li>
+              <li class="menu-item" v-for="item in tags">
+                <a href="">{{item.tag}}</a>
+              </li>
             </ul>
           </li>
           <li class="menu-item"><a href=""><i class="fa fa-comment"></i>留言</a></li>
@@ -25,7 +25,28 @@
 <script>
 // 实现导航条的自动显示
 import Headroom from 'headroom.js'
+import { unique } from '@/assets/js/unique';
+import axios from 'axios'
 export default {
+  data () {
+    return {
+      tags: []
+    }
+  },
+  methods: {
+    getTags () {
+      axios.get("/articles/articleTags").then((result)=>{
+        let res = result.data
+        if (res.status == '0') {
+          this.tags = res.result
+          this.tags = unique(this.tags)
+          this.$emit('shareTags', this.tags)
+        } else {
+          this.tags = ["未获取到数据"]
+        }
+      })
+    }
+  },
   mounted () {
     var myElement = document.querySelector(".header");
     // construct an instance of Headroom, passing the element
@@ -39,6 +60,7 @@ export default {
       }
     });
     headroom.init();
+    this.getTags()
   }
 }
 </script>

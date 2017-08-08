@@ -1,24 +1,32 @@
 <template lang="html">
   <div class="foot">
     <div class="container">
-    <img src="/static/bingguo.jpg" alt="">
+      <run-time></run-time>
+      <p>Made
+        <i class="fa fa-heart"></i>
+        By JhonXY.
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import runTime from '@/components/runTime.vue'
 export default {
+  components: {
+    runTime
+  }
 }
 </script>
 
 <style lang="css">
 .foot {
+  color: #888;
+  font-style: 12px;
   position: relative;
-}
-.foot img {
-  height: 200px;
-  position: relative;
-  left: 100px;
-  /*bottom: 50px;*/
+  margin-top: 40px;
+  padding: 15px 0 10px;
+  background-color: rgb(46, 47, 47);
+  text-align: center;
 }
 </style>

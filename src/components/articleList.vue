@@ -1,11 +1,11 @@
 <template lang="html">
 <div class="article-list">
-  <article class="block post" v-for="item in list">
+  <article class="block post wysiwyg" v-for="item in list">
     <!-- <span class="time">
       <span class="month">1月</span>
       <span class="day">12</span>
     </span> -->
-    <h1>{{item.title}}</h1>
+    <h2>{{item.title}}</h2>
     <p class="article-meta">发布于 {{item.createDate}}</p>
     <div class="ui ribbon label red">
       <a href="">{{item.tag}}</a>

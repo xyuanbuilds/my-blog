@@ -104,13 +104,18 @@ a {
   }
 
   .collapse-menum {
-      background-color: rgba(175, 175, 175, 0.2);
+      background-color: #fff;
       float: left;
       margin: 0;
       position: absolute;
       top: 38px;
       left: -999em;
       z-index: 9;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px;
+      border: 1px solid #e5e9ef;
+  }
+  .collapse-menum li a{
+      color: #222222;
   }
   .primary-navigation li li {
     border: 0;

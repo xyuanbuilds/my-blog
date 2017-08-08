@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="blog">
-    <nav-header></nav-header>
+    <nav-header @shareTags='shareTags'></nav-header>
     <div class="headpic">
       <div class="container headtitle">
         <div class="title">
@@ -116,12 +116,20 @@
               </li>
             </div>
           </side-section>
+          <side-section>
+            <div slot="sidecontent">
+              <li class="message-title">标签</li>
+              <div class="tags">
+                <span class="tags-item" v-for="item in tags"><a href="#">{{item.tag}}</a></span>
+              </div>
+            </div>
+          </side-section>
           <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe>
         </div>
       </div>
     </div>
     <scroll-top></scroll-top>
-    <!-- <nav-footer></nav-footer> -->
+    <nav-footer></nav-footer>
   </div>
 </template>
 
@@ -139,6 +147,17 @@ export default {
     articleList,
     sideSection,
     scrollTop
+  },
+  data () {
+    return {
+      tags: []
+    }
+  },
+  methods : {
+    // 利用监听获取子组件数据，并传给另外的子组件
+    shareTags (msg) {
+      this.tags = msg
+    }
   }
 }
 </script>
@@ -286,5 +305,27 @@ li {
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+
+.tags {
+  flex-flow: row wrap;
+  display: flex;
+  padding-top: 20px;
+}
+.tags .tags-item {
+  margin: 0 16px 16px 0;
+  padding: 0 15px;
+  height: 30px;
+  line-height: 30px;
+  max-width: 100%;
+  background: rgba(0, 0, 0, .06);
+  color: #666768;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 </style>

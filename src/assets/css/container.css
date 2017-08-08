@@ -4,7 +4,7 @@
     position: relative;
 }
 .container.full {
-    max-width: 60%;
+    max-width: 66%;
 }
 .container:after {
     clear: both;
@@ -14,9 +14,18 @@
 
 @media (max-width: 800px) {
     .container {
-        max-width: 100%!important;
+      max-width: 100%!important;
     }
     .back-to-top {
       display: none;
+    }
+    .main-full {
+      border-radius: 0px!important;
+    }
+    .full-content header {
+      width: 80%!important;
+    }
+    .post-content {
+      width: 80%!important;
     }
 }

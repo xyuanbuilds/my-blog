@@ -2,7 +2,7 @@
 <div class="article">
   <nav-header></nav-header>
   <div class="headpic">
-    <div class="container headtitle">
+    <div class="container headtitle full">
       <div class="title">
         <h1 href="/blog">Chunibyo</h1>
       </div>
@@ -19,7 +19,7 @@
               <span class="date">{{article.createDate}}</span>
             </p>
           </header>
-          <div class="post-content" v-html="article.content">
+          <div class="post-content wysiwyg" v-html="article.content">
           </div>
         </div>
       </div>
@@ -33,6 +33,7 @@
 import NavHeader from '@/components/Header.vue'
 import NavFooter from '@/components/Footer.vue'
 import scrollTop from '@/components/scrollTop.vue'
+import 'wysiwyg.css'
 import axios from 'axios'
 export default {
   name: 'Article',
@@ -71,16 +72,20 @@ export default {
 </script>
 
 <style media="screen">
+body {
+  background-color: #f4f4f4;;
+}
 .main-full {
-  margin-top: -90px;
   width: 100%;
   margin: 0 0 30px 0;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
   position: absolute;
   top: -90px;
   overflow: hidden;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
 }
 
 .full-content {
@@ -88,12 +93,12 @@ export default {
 }
 
 .full-content header {
-  width: 63.63636364%;
+  width: 66%;
   margin: 0 auto 50px auto;
 }
 
 .post-content {
-  width: 63.63636364%;
+  width: 66%;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -124,5 +129,11 @@ export default {
   text-transform: uppercase;
   letter-spacing: .03em;
   color: #bbb;
+}
+
+/*markdown补充*/
+.wysiwyg img {
+  max-width: 100%;
+  display: block;
 }
 </style>
