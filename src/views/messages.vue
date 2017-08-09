@@ -12,18 +12,40 @@
       <div class="list">
         <div class="main-full">
           <div class="full-content">
-            <div class="messages-text">
-              <h3 class="hestia-title text-center">Leave a Reply</h3>
-              <textarea ref='textBox' spellcheck='false' placeholder="咱们交♂流交♂流~~" v-model="message" class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
-              <div class="input">
-                <input type="text" placeholder="起个名吧" v-model.trim="name" class="msg-name">
-                <input type="email" placeholder="你的邮箱哦" v-model.trim="email" class="msg-email">
+            <div class="messages-text post-content">
+              <div style="overflow:hidden;margin-bottom:20px;">
+                <h3 class="hestia-title text-center">Leave a Reply</h3>
+                <textarea ref='textBox' spellcheck='false' placeholder="咱们交♂流交♂流~~" v-model="message" class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
+                <div class="input">
+                  <input type="text" placeholder="起个名吧" v-model.trim="name" class="msg-name">
+                  <input type="email" placeholder="你的邮箱哦" v-model.trim="email" class="msg-email">
+                </div>
+                <span>{{status}}</span>
+                <br>
+                <button @click='submit' :disabled='submitFlag' class="submit">
+                      <span>{{submitFlag ? '提交中...' : '发布评论'}}</span>
+                </button>
               </div>
-              <br>
-              <button @click='submit' :disabled='submitFlag'>
-                    <span>{{submitFlag ? '提交中...' : '发布评论'}}</span>
-                    <span>{{status}}</span>
-              </button>
+              <div class="msg">
+                <ol class="msg-list">
+                  <li class="msg-list-item" v-for="item in messagesList">
+                    <article>
+                      <header>
+                        <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'" alt="">
+                        <div class="msg-author">
+                          <div class="msg-author-name">{{item.name}}</div>
+                        </div>
+                        <div class="msg-author-time">{{item.createDate}}</div>
+                      </header>
+                      <section class="msg-main">
+                        <div class="msg-reply">
+                          <p>{{item.content}}</p>
+                        </div>
+                      </section>
+                    </article>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
@@ -39,6 +61,7 @@ import NavHeader from '@/components/Header.vue'
 import NavFooter from '@/components/Footer.vue'
 import scrollTop from '@/components/scrollTop.vue'
 import axios from 'axios'
+import md5 from 'md5'
 export default {
   data () {
     return {
@@ -72,7 +95,7 @@ export default {
     submit () {
       let reg = /^[\w_-]+@[\w_-]+\.[\w\\.]+$/
       if (!this.name || !this.email || !this.message) {
-        this.status = '信息不全啊'
+        this.status = '怕是有什么没填哦'
         return
       } else if (!reg.test(this.email)) {
         this.status = '邮箱格式不对呀'
@@ -110,11 +133,9 @@ export default {
 </script>
 
 <style lang="css">
-.messges-text {
+.messages-text {
   width: 100%;
-  text-align: center;
-  display: table-cell;
-  overflow: visible;
+  overflow: hidden;
 }
 textarea {
   margin: 10px 0;
@@ -143,5 +164,50 @@ textarea {
 }
 .msg-email {
   margin-right: 0;
+}
+.submit {
+  float: right;
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  line-height: 24px;
+  background-color: #e91e63;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+.msg-list>li {
+  border-bottom: 1px solid #e5eaed;
+}
+.msg-list>li article {
+  margin: 20px 0;
+}
+.msg-list>li section {
+  line-height: 20px;
+  font-size: 14px;
+  margin-left: 80px;
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.msg-list .avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  float: left;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  margin-right: 15px;
+}
+.msg-author-time {
+  color: #aaa;
+  font-size: 12px;
+  display: block;
+}
+.msg-reply>p {
+  margin: 5px 0;
+  line-height: 24px;
 }
 </style>

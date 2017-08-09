@@ -6,7 +6,7 @@
         <ul class="nav-menu">
           <li class="menu-item"><router-link href="#" to="/blog"><i class="fa fa-home"></i>首页</router-link></li>
           <li id="collapse" class="menu-item">
-            <a href=""><i class="fa fa-cog"></i>分类</a>
+            <a href="#"><i class="fa fa-cog"></i>分类</a>
             <ul class="collapse-menum">
               <li class="menu-item" v-for="item in tags">
                 <a href="">{{item.tag}}</a>

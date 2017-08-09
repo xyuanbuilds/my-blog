@@ -18,4 +18,7 @@ textarea,p,blockquote,th,td,button,span {
   margin: 0;
   padding: 0;
 }
+ol, ul {
+    list-style: none;
+}
 </style>
