@@ -1,6 +1,8 @@
 .headpic {
   height: 280px;
-  background: url(/static/sky.png) center -600px no-repeat;
+  background: url(/static/xiyang.png) center -52px no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
   position: relative;
 }
 

@@ -22,7 +22,7 @@ export default {
 <style lang="css">
 .foot {
   color: #888;
-  font-style: 12px;
+  font-size: 12px;
   position: relative;
   margin-top: 40px;
   padding: 15px 0 10px;

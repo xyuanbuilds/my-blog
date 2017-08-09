@@ -4,7 +4,7 @@
     <nav id="primary-navigation" class="site-navigation primary-navigation">
       <div class="menum">
         <ul class="nav-menu">
-          <li class="menu-item"><router-link href="" to="/blog"><i class="fa fa-home"></i>首页</router-link>
+          <li class="menu-item"><router-link href="#" to="/blog"><i class="fa fa-home"></i>首页</router-link></li>
           <li id="collapse" class="menu-item">
             <a href=""><i class="fa fa-cog"></i>分类</a>
             <ul class="collapse-menum">
@@ -13,8 +13,8 @@
               </li>
             </ul>
           </li>
-          <li class="menu-item"><a href=""><i class="fa fa-comment"></i>留言</a></li>
-          <li class="menu-item"><a href=""><i class="fa fa-user"></i>关于</a></li>
+          <li class="menu-item"><router-link to="/messages"><i class="fa fa-comment"></i>留言</router-link></li>
+          <li class="menu-item"><router-link to="/about"><i class="fa fa-user"></i>关于</router-link></li>
         </ul>
       </div>
     </nav>

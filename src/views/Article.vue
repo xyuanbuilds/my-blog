@@ -26,6 +26,7 @@
     </div>
   </div>
   <scroll-top></scroll-top>
+  <nav-footer></nav-footer>
 </div>
 </template>
 
@@ -78,11 +79,12 @@ body {
 .main-full {
   width: 100%;
   margin: 0 0 30px 0;
+  margin-top: -90px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
-  position: absolute;
-  top: -90px;
+  /*position: absolute;
+  top: -90px;*/
   overflow: hidden;
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out;

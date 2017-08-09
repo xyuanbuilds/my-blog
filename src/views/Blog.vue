@@ -32,10 +32,10 @@
               </a>
               </div>
               <div class="social">
-                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-weibo"></i></a>
-                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-github"></i></a>
-                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-envelope"></i></a>
-                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-address-card-o"></i></a>
+                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-weibo" style="background-color: #dd4b39"></i></a>
+                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-github" style="background-color: #55acee;"></i></a>
+                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-envelope" style="background-color: #3b5998"></i></a>
+                <a data-balloon="微博" href="http://weibo.com/anotherhome" rel="nofollow" class="icon"><i class="fa fa-address-card-o" style="background-color: #80b953"></i></a>
               </div>
             </div>
           </side-section>
@@ -241,20 +241,15 @@ a.pic img {
   text-decoration: none;
 }
 .social a i {
-  font-size: 20px;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 42px;
-  color: rgba(0,0,0,.5);
+  font-size: 22px;
+  /*width: 30px;
+  height: 30px;*/
+  width: 38px;
+  line-height: 38px;
+  border-radius: 50px;
+  color: #fff;
   background-color: rgba(0,0,0,.1);
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
   text-align: center;
-}
-.social a i:hover {
-  background-color: rgba(246, 122, 122, 0.8);
-  color: rgba(255, 255, 255, 0.5);
 }
 .fa {
     margin: 0 0.2em;
