@@ -123,6 +123,7 @@ export default {
           let res = result.data
           if (res.status == "0") {
             this.status = '留言成功喽'
+            this.getMessages()
           } else {
             this.status = '蜜汁错误'
           }

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="blog">
-    <nav-header @shareTags='shareTags'></nav-header>
+    <nav-header @shareTags='shareTags' @shareOne='shareOne'></nav-header>
     <div class="headpic">
       <div class="container headtitle">
         <div class="title">
@@ -11,7 +11,7 @@
     <div class="container content">
       <div class="list">
         <div class="main">
-          <article-list></article-list>
+          <article-list :tagSelect="tag"></article-list>
         </div>
         <div class="side">
           <side-section>
@@ -42,77 +42,23 @@
           <side-section>
             <div slot="sidecontent">
               <li class="message-title">留言</li>
-              <li class="message-item">
-                <a href="javascript:;" class="message-from">
+              <li class="message-item" v-for="item in messagesList">
+                <router-link to="/messages" class="message-from">
                   <div class="message-content">
                     <span class="l_title">
-                      XY
+                      {{item.name}}
                       <span>
                         <br>
                         <small class="l_message">
-                          记录生活每一天
-                          记录生活每一天
-                          记录生活每一天
-                          记录生活每一天
-                          记录生活每一天
+                          {{item.content}}
                         </small>
                       </span>
                     </span>
                   </div>
-                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
+                  <div class="message-avatar">
+                    <img :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'" alt="">
                   </div>
-                </a>
-              </li>
-              <li class="message-item">
-                <a href="javascript:;" class="message-from">
-                  <div class="message-content">
-                    <span class="l_title">
-                      XY
-                      <span>
-                        <br>
-                        <small class="l_message">
-                          记录生活每一天
-                        </small>
-                      </span>
-                    </span>
-                  </div>
-                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
-                  </div>
-                </a>
-              </li>
-              <li class="message-item">
-                <a href="javascript:;" class="message-from">
-                  <div class="message-content">
-                    <span class="l_title">
-                      XY
-                      <span>
-                        <br>
-                        <small class="l_message">
-                          记录生活每一天
-                        </small>
-                      </span>
-                    </span>
-                  </div>
-                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
-                  </div>
-                </a>
-              </li>
-              <li class="message-item">
-                <a href="javascript:;" class="message-from">
-                  <div class="message-content">
-                    <span class="l_title">
-                      XY
-                      <span>
-                        <br>
-                        <small class="l_message">
-                          记录生活每一天
-                        </small>
-                      </span>
-                    </span>
-                  </div>
-                  <div class="message-avatar" style="background-image:url('/static/card.jpg')">
-                  </div>
-                </a>
+                </router-link>
               </li>
             </div>
           </side-section>
@@ -120,7 +66,7 @@
             <div slot="sidecontent">
               <li class="message-title">标签</li>
               <div class="tags">
-                <span class="tags-item" v-for="item in tags"><a href="#">{{item.tag}}</a></span>
+                <span class="tags-item" v-for="item in tags"><a href="#" @click="getOne(item.tag)">{{item.tag}}</a></span>
               </div>
             </div>
           </side-section>
@@ -139,6 +85,7 @@ import NavFooter from '@/components/Footer.vue'
 import articleList from '@/components/articleList.vue'
 import sideSection from '@/components/sideSection.vue'
 import scrollTop from '@/components/scrollTop.vue'
+import axios from 'axios'
 export default {
   name: 'Blog',
   components: {
@@ -150,13 +97,52 @@ export default {
   },
   data () {
     return {
-      tags: []
+      tags: [],
+      messagesList: [],
+      tag: ''
     }
+  },
+  mounted () {
+    this.getMessages()
   },
   methods : {
     // 利用监听获取子组件数据，并传给另外的子组件
     shareTags (msg) {
       this.tags = msg
+    },
+    shareOne (msg) {
+      this.tag = msg
+    },
+    getOne (msg) {
+      this.tag = msg
+    },
+    getMessages () {
+      axios.get("/messages/messageList").then((result)=>{
+        let res = result.data
+        this.messagesList = res.result
+      })
+    },
+    getTagList () {
+      var param = {
+        page: this.page,
+        pageSize: this.pageSize,
+        tag: this.tagSelect
+      }
+      axios.get("/articles/tagsDetial", {
+        params: param
+      }).then((result)=>{
+        let res = result.data
+        if (res.status == "0") {
+          if (res.result.count == 0) {
+            this.page -= 1
+            return
+          } else {
+            this.list = res.result.list
+          }
+        } else {
+          this.list = []
+        }
+      })
     }
   }
 }
@@ -275,7 +261,7 @@ li {
   line-height: 14px;
   position: relative;
 }
-.message-avatar {
+.message-avatar img{
   position: absolute;
   left: 10px;
   top: 8px;
@@ -285,14 +271,14 @@ li {
   width: 37px;
 }
 .l_title {
-  color: rgba(139, 139, 139, 0.8);
-    font-weight: 700;
-    padding: 1px 0 0;
-    line-height: 17px;
-    font-size: 14px;
+  color: #778087;
+  font-weight: 700;
+  padding: 1px 0 0;
+  line-height: 17px;
+  font-size: 14px;
 }
 .l_message {
-  color: rgba(139, 139, 139, 0.5);
+  color: #778087;
   display: block;
   font-weight: 400;
   line-height: 17px;

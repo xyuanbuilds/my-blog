@@ -1,10 +1,6 @@
 <template lang="html">
 <div class="article-list">
   <article class="block post wysiwyg" v-for="item in list">
-    <!-- <span class="time">
-      <span class="month">1月</span>
-      <span class="day">12</span>
-    </span> -->
     <h2>{{item.title}}</h2>
     <p class="article-meta">发布于 {{item.createDate}}</p>
     <div class="ui ribbon label red">
@@ -12,7 +8,7 @@
     </div>
     <div class="abstract" v-html="item.content.html">
     </div>
-    <p class="more"><router-link :to="{ path: '/article', query:{articleId:item.articleId} }">阅读全文</router-link></p>
+    <p class="more"><router-link :to="{ path:'/article', query:{articleId:item.articleId}}">阅读全文</router-link></p>
   </article>
   <div class="pages">
     <a href="javascript:;" @click="go(page-=1)" style="float: left;">上一页</a>
@@ -24,12 +20,20 @@
 <script>
 import axios from 'axios'
 export default {
+  props:[
+    'tagSelect'
+  ],
   data () {
     return {
       list: [],
       page: 1,
       pageSize: 10,
       count: 0
+    }
+  },
+  watch: {
+    tagSelect () {
+      this.getTagList()
     }
   },
   mounted () {
@@ -42,6 +46,28 @@ export default {
         pageSize: this.pageSize
       }
       axios.get("/articles/articleList", {
+        params: param
+      }).then((result)=>{
+        let res = result.data
+        if (res.status == "0") {
+          if (res.result.count == 0) {
+            this.page -= 1
+            return
+          } else {
+            this.list = res.result.list
+          }
+        } else {
+          this.list = []
+        }
+      })
+    },
+    getTagList () {
+      var param = {
+        page: this.page,
+        pageSize: this.pageSize,
+        tag: this.tagSelect
+      }
+      axios.get("/articles/tagsDetial", {
         params: param
       }).then((result)=>{
         let res = result.data

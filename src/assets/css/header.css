@@ -78,10 +78,17 @@ a {
         padding: 0;
         text-align: center;
     }
+    #primary-navigation .collapse-menum li a {
+      width: 78px;
+    }
     #primary-navigation ul ul a{
         padding: 14px 12px;
         white-space: normal;
         background-color: rgba(175, 175, 175, 0.2);
+    }
+    .title {
+      float: none!important;
+      margin: 0 auto;
     }
 }
 @media screen and (min-width: 6px) {
@@ -126,7 +133,7 @@ a {
   .primary-navigation ul ul a{
     padding: 14px 12px;
     white-space: normal;
-    width: 130px;
+    width: 100px;
     background-color: rgba(175, 175, 175, 0.2);
   }
   .menu-item {
