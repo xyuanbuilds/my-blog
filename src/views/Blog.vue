@@ -95,34 +95,39 @@ export default {
     sideSection,
     scrollTop
   },
-  data () {
+  data() {
     return {
       tags: [],
       messagesList: [],
-      tag: ''
+      tag: '',
+      limit: 8 // 用于限制首页显示留言量
     }
   },
-  mounted () {
+  mounted() {
     this.getMessages()
   },
-  methods : {
+  methods: {
     // 利用监听获取子组件数据，并传给另外的子组件
-    shareTags (msg) {
+    shareTags(msg) {
       this.tags = msg
     },
-    shareOne (msg) {
+    shareOne(msg) {
       this.tag = msg
     },
-    getOne (msg) {
+    getOne(msg) {
       this.tag = msg
     },
-    getMessages () {
-      axios.get("/messages/messageList").then((result)=>{
+    getMessages() {
+      axios.get("/messages/messageList", {
+        params: {
+          limit: this.limit
+        }
+      }).then((result) => {
         let res = result.data
         this.messagesList = res.result
       })
     },
-    getTagList () {
+    getTagList() {
       var param = {
         page: this.page,
         pageSize: this.pageSize,
@@ -130,7 +135,7 @@ export default {
       }
       axios.get("/articles/tagsDetial", {
         params: param
-      }).then((result)=>{
+      }).then((result) => {
         let res = result.data
         if (res.status == "0") {
           if (res.result.count == 0) {
@@ -150,14 +155,17 @@ export default {
 
 <style>
 body {
-  background-color: #f4f4f4;;
+  background-color: #f4f4f4;
+  ;
 }
+
 .secondary h3 {
   margin: 0 0 15px 0;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
 }
+
 .secondary h3 .cat-desc {
   display: block;
   margin: 5px 0 0 0;
@@ -165,6 +173,7 @@ body {
   font-weight: normal;
   color: #999;
 }
+
 .pres {
   position: relative;
   line-height: 1.5;
@@ -174,6 +183,7 @@ body {
   border-radius: 3px;
   margin-bottom: 15px;
 }
+
 a.pic {
   top: 3px;
   margin-left: 3px;
@@ -181,6 +191,7 @@ a.pic {
   z-index: auto;
   position: absolute;
 }
+
 a.pic img {
   height: 100px;
   width: 100px;
@@ -190,6 +201,7 @@ a.pic img {
   vertical-align: middle;
   border-radius: 8px;
 }
+
 .social {
   padding-top: 10px;
   padding-left: 110px;
@@ -203,11 +215,13 @@ a.pic img {
   font-weight: 500;
   text-decoration: none;
 }
+
 .item-info {
   width: calc(100% - 40%);
   line-height: 1.5;
   float: none;
 }
+
 .item-title {
   margin: 0;
   font-size: 14px;
@@ -215,17 +229,20 @@ a.pic img {
   color: #3a8bbb;
   display: block;
 }
+
 .item-desc {
   font-size: 12px;
   font-weight: normal;
   color: #999;
   display: block;
 }
+
 .social a {
   display: inline-block;
   margin-bottom: 7px;
   text-decoration: none;
 }
+
 .social a i {
   font-size: 22px;
   /*width: 30px;
@@ -234,26 +251,31 @@ a.pic img {
   line-height: 38px;
   border-radius: 50px;
   color: #fff;
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
   text-align: center;
 }
+
 .fa {
-    margin: 0 0.2em;
+  margin: 0 0.2em;
 }
+
 li {
   list-style-type: none;
 }
+
 .message-title {
   border-bottom: 2px solid rgba(139, 139, 139, 0.5);
-    padding: 0 10px;
-    color: rgb(139, 139, 139);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 25px;
+  padding: 0 10px;
+  color: rgb(139, 139, 139);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 25px;
 }
+
 .message-item {
-  border-bottom: 1px solid rgba(139, 139, 139, 0.5);
+  border-bottom: 1px dashed rgba(139, 139, 139, 0.4);
 }
+
 .message-from {
   height: 45px;
   padding: 8px 8px 0 57px;
@@ -261,15 +283,17 @@ li {
   line-height: 14px;
   position: relative;
 }
-.message-avatar img{
+
+.message-avatar img {
   position: absolute;
   left: 10px;
   top: 8px;
-  border-radius: 3px;
+  border-radius: 5px;
   display: block;
   height: 37px;
   width: 37px;
 }
+
 .l_title {
   color: #778087;
   font-weight: 700;
@@ -277,6 +301,7 @@ li {
   line-height: 17px;
   font-size: 14px;
 }
+
 .l_message {
   color: #778087;
   display: block;
@@ -284,7 +309,7 @@ li {
   line-height: 17px;
   font-size: 13px;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -293,6 +318,7 @@ li {
   display: flex;
   padding-top: 20px;
 }
+
 .tags .tags-item {
   margin: 0 16px 16px 0;
   padding: 0 15px;

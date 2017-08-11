@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "element-ui": "^1.4.2",
     "headroom.js": "^0.9.4",
+    "mavon-editor": "^2.2.3",
     "md5": "^2.2.1",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",

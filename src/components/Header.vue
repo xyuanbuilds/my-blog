@@ -48,6 +48,7 @@ export default {
     },
     getOne (tag) {
       this.$emit('shareOne', tag)
+      this.$router.push({path:'/blog'})
     }
   },
   mounted () {
