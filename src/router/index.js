@@ -6,9 +6,9 @@ import About from '@/views/About'
 import Article from '@/views/Article'
 import Messages from '@/views/Messages'
 import admin from '@/admin/admin'
-import article from '@/admin/article'
+import adminArticle from '@/admin/adminArticle'
 import change from '@/admin/change'
-import articleList from '@/admin/articleList'
+import adminArticleList from '@/admin/adminArticleList'
 import login from '@/admin/login'
 
 
@@ -46,10 +46,12 @@ export default new Router({
       path: '/admin',
       name: 'Admin',
       component: admin,
+      // redirect: '/admin/adminArticle',
+      redirect: { name: 'adminArticle'},
       children: [
-            { path: '/adminArticle', component: article, name: '文章新建'},
-            { path: '/adminChange', component: change, name: '文章修改'},
-            { path: '/adminArticleList', component: articleList, name: '文章列表'},
+            { path: 'adminArticle', component: adminArticle, name: 'adminArticle'},
+            { path: 'adminChange', component: change, name: 'adminChange'},
+            { path: 'adminArticleList', component: adminArticleList, name: 'adminArticleList'},
         ]
     },
     {

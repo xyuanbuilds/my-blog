@@ -109,7 +109,7 @@ export default {
     },
     handle (index) {
       let articleId = this.tableData[index].articleId;
-      this.$router.push({path:'/adminChange', query: {articleId:articleId}})
+      this.$router.push({path :'/admin/adminChange', query: { articleId:articleId }})
     }
   },
   mounted () {

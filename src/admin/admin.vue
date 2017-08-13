@@ -13,18 +13,18 @@
     </el-menu>
     <el-breadcrumb separator="/" style="padding: 20px 20px 20px 20px;">
       <el-breadcrumb-item :to="{ path: '/admin' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>xxx</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/admin/adminArticleList' }">xxx</el-breadcrumb-item>
       <el-breadcrumb-item>xxx</el-breadcrumb-item>
       <el-breadcrumb-item>xxx</el-breadcrumb-item>
     </el-breadcrumb>
   </el-row>
   <el-row  type="flex">
-      <el-menu :default-active="$router.path" :router="true" mode="vertical" :collapse="isCollapse">
-        <el-menu-item index="/adminArticleList">
+      <el-menu :default-active="$router.index" :router="true" mode="vertical" :collapse="isCollapse">
+        <el-menu-item index="/admin/adminArticleList">
           <i class="el-icon-menu"></i>
           <span slot="title">文章列表</span>
         </el-menu-item>
-        <el-menu-item index="/adminArticle">
+        <el-menu-item index="/admin/adminArticle">
           <i class="el-icon-setting"></i>
           <span slot="title">新建文章</span>
         </el-menu-item>
@@ -56,14 +56,11 @@ export default {
       this.isCollapse = !this.isCollapse
     },
     checkLogin(){
-      //检查是否存在session
-      //cookie操作方法在源码里有或者参考网上的即可
       if(!this.getCookie('user')){
-        //如果没有登录状态则跳转到登录页
         this.$router.push('/login');
       }else{
-        //否则跳转到登录后的页面
-        this.$router.push('/admin');
+        // this.$router.push('/admin');
+        next();
       }
     }
   }
