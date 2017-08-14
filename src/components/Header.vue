@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     getTags () {
-      axios.get("/articles/articleTags").then((result)=>{
+      axios.get("/api/articleTags").then((result)=>{
         let res = result.data
         if (res.status == '0') {
           this.tags = res.result

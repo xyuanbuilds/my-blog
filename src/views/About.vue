@@ -10,7 +10,7 @@
     </div>
     <div class="container full">
       <div class="list">
-        <div class="main-full">
+        <div>
           <div class="full-content">
             <div class="messages-text post-content">
               <div style="height: 600px;">

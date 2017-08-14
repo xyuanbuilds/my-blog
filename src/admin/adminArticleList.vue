@@ -73,7 +73,7 @@ export default {
         page: this.page,
         pageSize: this.pageSize,
       }
-      axios.get("/admin/articleList",{
+      axios.get("/api/articleList_admin",{
         params: param //传入到后端的参数集
       }).then((result)=>{
         let res = result.data
@@ -91,7 +91,7 @@ export default {
 		    cancelButtonText: '取消',
 		    type: 'warning'
 		  }).then(()=>{
-        axios.post("/admin/articleDelete", {
+        axios.post("/api/articleDelete", {
           articleId:articleId
         }).then((response)=>{
           let res = response.data

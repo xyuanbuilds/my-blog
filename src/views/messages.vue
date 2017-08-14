@@ -10,12 +10,12 @@
     </div>
     <div class="container full">
       <div class="list">
-        <div class="main-full">
+        <div>
           <div class="full-content">
             <div class="messages-text post-content">
               <div style="overflow:hidden;margin-bottom:20px;">
                 <h3 class="hestia-title text-center">Leave a Reply</h3>
-                <textarea ref='textBox' spellcheck='false' placeholder="咱们交♂流交♂流~~" v-model="message" class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
+                <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message" class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
                 <div class="input">
                   <input type="text" placeholder="起个名吧" v-model.trim="name" class="msg-name">
                   <input type="email" placeholder="你的邮箱哦" v-model.trim="email" class="msg-email">
@@ -33,7 +33,7 @@
                       <header>
                         <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'" alt="">
                         <div class="msg-author">
-                          <div class="msg-author-name">{{item.name}}</div>
+                          <div class="msg-author-name">{{item.name}}  <span id="admin" v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span></div>
                         </div>
                         <div class="msg-author-time">{{item.createDate}}</div>
                       </header>
@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     getMessages () {
-      axios.get("/messages/messageList").then((result)=>{
+      axios.get("/api/messageList").then((result)=>{
         let res = result.data
         this.messagesList = res.result
       })
@@ -115,7 +115,7 @@ export default {
       this.summitFlag = true
       localStorage.setItem('e-mail', this.email)
       localStorage.setItem('name', this.name)
-      axios.post("messages/messageSub", {
+      axios.post("/api/messageSub", {
         "name": this.name,
         "email": this.email,
         "content": this.message
@@ -133,7 +133,14 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+#admin {
+  padding: 1px 5px;
+  background-color: rgb(213, 103, 103);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 5px;
+}
 .messages-text {
   width: 100%;
   overflow: hidden;
@@ -156,6 +163,15 @@ textarea {
   box-sizing: border-box;
   font-size: 14px;
   border-radius: 3px;
+}
+.msg-content:focus,.msg-name:focus,.msg-email:focus {
+  border: 1px solid #b0b5b9;
+}
+.msg-content {
+  width: 100%;
+  max-width: 100%;
+  height: 270px;
+  max-height: 500px;
 }
 .msg-name,.msg-email {
   width: 48%;
@@ -210,5 +226,8 @@ textarea {
 .msg-reply>p {
   margin: 5px 0;
   line-height: 24px;
+}
+.full-content header {
+  margin: 0 0!important;
 }
 </style>

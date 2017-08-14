@@ -50,7 +50,7 @@ export default {
   		}
       //设置在登录状态
       this.isLoging = true;
-      axios.get('/admin/login', {
+      axios.get('/api/login', {
         params: param
       }).then((result) => {
         let res = result.data
@@ -63,15 +63,6 @@ export default {
           this.$router.push('/');
         }
       })
-      //演示用
-  		// setTimeout(()=>{
-      //   //登录状态15天后过期
-      //   let expireDays = 1000 * 60 * 60 * 24 * 15;
-  		// 	this.setCookie('session','blablablablabla...', expireDays);
-      //   this.isLoging = false;
-      //   //登录成功后
-  		// 	this.$router.push('/admin');
-  		// },3000)
   	}
   }
 }

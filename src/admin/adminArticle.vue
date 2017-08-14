@@ -51,7 +51,7 @@ export default{
       return {
         value: '# 请开始你的表演',
         tags:[{
-          name: "js",
+          name: "Js",
         },
         {
           name: "CSS",
@@ -66,7 +66,10 @@ export default{
           name: "React",
         },
         {
-          name: "python",
+          name: "Python",
+        },
+        {
+          name: "Linux",
         },
         {
           name: "ACG",
@@ -101,7 +104,7 @@ export default{
         } else if (!this.content) {
           this.$message.error('无内容')
         } else {
-          axios.post("/admin/articleSub", {
+          axios.post("/api/articleSub", {
             title: this.form.title,
             tag: this.form.tag,
             describtion: this.form.describtion,

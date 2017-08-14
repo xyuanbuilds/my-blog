@@ -45,7 +45,7 @@ export default {
         page: this.page,
         pageSize: this.pageSize
       }
-      axios.get("/articles/articleList", {
+      axios.get("/api/articleList", {
         params: param
       }).then((result)=>{
         let res = result.data
@@ -67,7 +67,7 @@ export default {
         pageSize: this.pageSize,
         tag: this.tagSelect
       }
-      axios.get("/articles/tagsDetial", {
+      axios.get("/api/tagsDetial", {
         params: param
       }).then((result)=>{
         let res = result.data

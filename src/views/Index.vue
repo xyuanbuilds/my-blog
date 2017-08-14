@@ -4,8 +4,8 @@
       <h1>Home</h1>
       <h2>just a Coding Peasant</h2>
       <p><router-link to="/blog">Blog</router-link></p>
-      <p><router-link to="/blog">Github</router-link></p>
-      <p><router-link to="/blog">知乎</router-link></p>
+      <p><a href="https://github.com/JhonXY">Github</a></p>
+      <p><a href="https://www.zhihu.com/people/minia-45/activities">知乎</a></p>
     </div>
     <canvas width="1920" height="950"></canvas>
   </div>

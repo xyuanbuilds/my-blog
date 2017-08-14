@@ -54,7 +54,7 @@ export default {
       let param = {
         articleId: articleId
       }
-      axios.get("/articles/articleDetial", {
+      axios.get("/api/articleDetial", {
         params: param
       }).then((result) => {
         let res = result.data

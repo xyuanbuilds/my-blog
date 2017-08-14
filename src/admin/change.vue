@@ -44,7 +44,7 @@ export default {
       let param = {
         articleId: articleId
       }
-      axios.get("/articles/articleDetial", {
+      axios.get("/api/articleDetial", {
         params: param
       }).then((result) => {
         let res = result.data
@@ -57,7 +57,7 @@ export default {
     },
     modifyArticle () {
       let articleId = this.$route.query.articleId
-      axios.post("/admin/articleModify", {
+      axios.post("/api/articleModify", {
         articleId: articleId,
         content: this.content
       }).then((response)=>{
