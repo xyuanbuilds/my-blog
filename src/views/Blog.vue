@@ -86,7 +86,7 @@
               </div>
             </div>
           </side-section>
-          <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe>
+          <!-- <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe> -->
         </div>
       </div>
     </div>
@@ -273,10 +273,6 @@ a.pic img {
 
 .fa {
   margin: 0 0.2em;
-}
-
-li {
-  list-style-type: none;
 }
 
 .message-title {

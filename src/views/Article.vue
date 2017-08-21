@@ -138,4 +138,11 @@ body {
   max-width: 100%;
   display: block;
 }
+
+.wysiwyg ul li{
+  list-style-type: disc;
+}
+.wysiwyg ol li {
+    list-style-type: decimal;
+}
 </style>

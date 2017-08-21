@@ -73,12 +73,9 @@ export default {
         let diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
         let diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
         let diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
-        self.moment =" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
+        self.moment =diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
       }, 1000)
     }
   }
 }
 </script>
-
-<style lang="css">
-</style>

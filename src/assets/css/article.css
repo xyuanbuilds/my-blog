@@ -12,28 +12,7 @@
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
 }
-/*.time {
-    background-color: #97dffd;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-    position: absolute;
-    top: -20px;
-    left: -35px;
-    height: 60px;
-    width: 70px;
-    padding-top: 10px;
-    border-radius: 100px;
-    text-align: center;
-    color: #EFEFEF;
-    z-index:10;
-}
-.time .month {
-    display: block;
-}
-.time .day {
-    font-size: 25px;
-    font-weight: 500;
-    display: block;
-}*/
+
 article h1 {
   text-align: center;
   padding: 0.1em 80px 0 80px;
@@ -62,7 +41,7 @@ article h2 {
 .ui.ribbon.label {
     position: relative;
     margin: 0 .2em;
-    left: -3.2rem;
+    left: -3.3rem;
     padding-left: 2rem;
     border-radius: 0 4px 4px 0;
     border-color: rgba(0,0,0,.15);
@@ -110,6 +89,11 @@ article h2 {
   color: #333;
   text-indent: 2em
 }
+.abstract img {
+  max-width: 100%;
+  display: block;
+}
+
 .article-meta, .more {
   text-align: center;
 }
