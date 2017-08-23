@@ -58,9 +58,6 @@ export default {
     checkLogin(){
       if(!this.getCookie('user')){
         this.$router.push('/login');
-      }else{
-        // this.$router.push('/admin');
-        next();
       }
     }
   }

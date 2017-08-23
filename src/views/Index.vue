@@ -28,9 +28,9 @@ export default {
       s.parentNode.insertBefore(ga, s);
     })();
 
-    document.addEventListener('touchmove', function(e) {
-      e.preventDefault()
-    })
+    // document.getElementByClassName('index').addEventListener('touchmove', function(e) {
+    //   e.preventDefault()
+    // })
     var c = document.getElementsByTagName('canvas')[0],
       x = c.getContext('2d'),
       pr = window.devicePixelRatio || 1,
