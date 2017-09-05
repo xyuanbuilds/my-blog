@@ -17,7 +17,7 @@
       <el-button v-popover:popover5 class="submit">发布</el-button>
       <div class="left">
       <el-button @click="dialogTableVisible = true">填写信息</el-button>
-      <el-button>添加分类</el-button>
+      <el-button @click="dialogTableVisible2 = true">添加分类</el-button>
       </div>
     </div>
   </div>
@@ -41,6 +41,31 @@
       <el-button type="primary" @click="dialogTableVisible = false">确 定</el-button>
     </div>
   </el-dialog>
+  <el-dialog title="标签分类" :visible.sync="dialogTableVisible2" id="tags">
+    <el-tag
+      :key="tag.name"
+      v-for="tag in tags"
+      :closable="true"
+      :close-transition="false"
+      @close="handleClose(tag.name)"
+    >
+    {{tag.name}}
+    </el-tag>
+    <el-input
+      class="input-new-tag"
+      v-if="inputVisible"
+      v-model="inputValue"
+      ref="saveTagInput"
+      size="mini"
+      @keyup.enter.native="handleInputConfirm"
+      @blur="handleInputConfirm"
+    >
+    </el-input>
+    <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+    <div slot="footer" class="dialog-footer">
+      <el-button type="primary" @click="dialogTableVisible2 = false">确 定</el-button>
+    </div>
+  </el-dialog>
 </div>
 </template>
 
@@ -50,42 +75,13 @@ export default{
 		data(){
       return {
         value: '# 请开始你的表演',
-        tags:[{
-          name: "Js",
-        },
-        {
-          name: "CSS",
-        },
-        {
-          name: "Html",
-        },
-        {
-          name: "Vue",
-        },
-        {
-          name: "React",
-        },
-        {
-          name: "Python",
-        },
-        {
-          name: "Linux",
-        },
-        {
-          name: "ACG",
-        },
-        {
-          name: "杂谈",
-        },
-        {
-          name: "事件记录",
-        },
-        {
-          name: "电影",
-        }],
+        tags:[],
         content: '',
         visible2: false,
         dialogTableVisible: false,
+        dialogTableVisible2: false,
+        inputValue: '',
+        inputVisible: false,
         form: {
           title: '',
           tag: '',
@@ -94,6 +90,9 @@ export default{
         formLabelWidth: '120px'
       }
 		},
+    mounted () {
+      this.getTags()
+    },
 		methods: {
       getContent (value,render) {
         this.content = render
@@ -123,11 +122,79 @@ export default{
           })
         }
       },
+      getTags () {
+        axios.get("/api/tags").then((result)=>{
+          let res = result.data
+          if (res.status == "0"){
+            this.tags = res.result.list;
+          } else {
+            this.tags = [];
+          }
+        })
+      },
+      handleClose(tag) {
+        this.tags.splice(this.tags.indexOf(tag.name), 1);
+        axios.post("/api/tagsDelete", {
+          tagDel: tag
+        }).then((response)=>{
+          let res = response.data
+          if (res.status == '0') {
+            this.$message({
+              type: 'success',
+              message: '标签已删除'
+            })
+          } else {
+            this.$message.error('未删除')
+          }
+        })
+      },
+      showInput() {
+        this.inputVisible = true;
+        this.$nextTick(_ => {
+          this.$refs.saveTagInput.$refs.input.focus();
+        });
+      },
+      handleInputConfirm() {
+        let inputValue = this.inputValue;
+        if (inputValue) {
+          this.tags.push({name:inputValue});
+          axios.post("/api/tagsAdd", {
+            tagAdd: inputValue
+          }).then((response)=>{
+            let res = response.data
+            if (res.status == '0') {
+              this.$message({
+                type: 'success',
+                message: '标签已添加'
+              })
+            } else {
+              this.$message.error('未添加')
+            }
+          })
+        }
+        this.inputVisible = false;
+        this.inputValue = '';
+      }
 		}
 	}
 </script>
 
 <style lang="css">
+#tags .el-tag+.el-tag {
+  margin-left: 10px;
+}
+#tags .button-new-tag,.input-new-tag{
+  margin-left: 10px;
+  height: 24px;
+  line-height: 22px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#tags .input-new-tag {
+  width:78px;
+  margin-left:10px;
+  vertical-align:bottom
+}
 .footer{
   overflow: hidden;
   margin: 0 auto;
